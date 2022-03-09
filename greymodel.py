@@ -9,7 +9,7 @@ class gm11(object):
     使用方法：
     1.实例化类     model = gm11(data,predstep=2)
     2.训练模型     model.fit()
-    3.查看拟合误差  model.MSE()
+    3.查看拟合误差  model.MAPE()
     4.预测        model.predict()
 
     Ps:背景值系数bg_coff接收的是一个列表（主要为了后面新模型的构建），默认值为一个空列表，此时背景值系数默认全部为0.5
@@ -70,7 +70,7 @@ class gm11(object):
         self.pred_values = self.pred_values.reshape((1,self.predstep))[0]
         return self.pred_values
 
-    def MSE(self) -> list:
+    def MAPE(self) -> list:
         for i in range(self.data_shape):
             self.error.append(abs(self.sim_values[i]-self.data[i][0])/self.data[i][0])
         return sum(self.error)/len(self.error)
@@ -87,5 +87,5 @@ if __name__ == '__main__':
     a = gm11(data)
     print('GM(1,1)的拟合值是： ', a.fit())
     print(f'GM(1,1)的{a.predstep}步预测值是： ', a.predict())
-    print('GM(1,1)的预测误差是： ', a.MSE())
+    print('GM(1,1)的预测误差是： ', a.MAPE())
     print(a.errors())
