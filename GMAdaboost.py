@@ -13,7 +13,7 @@ class AdaboostGM(object):
     1.实例化对象  model = AdaboostGM(data)
     2.进行训练    values = model.fit()
     3.进行预测    pred = model.predict()
-    4.查看损失    model.MSE(values)
+    4.查看损失    model.MAPE(values)
 
     参数解释：
     data:原始数据
@@ -168,7 +168,7 @@ class AdaboostGM(object):
         return self.predict_array
 
     # 定义损失函数
-    def MSE(self, sim_data: np.array) -> float:
+    def MAPE(self, sim_data: np.array) -> float:
         for i in range(self.data_shape):
             self.error.append(round(abs(sim_data[i] - self.data.iloc[i, 0]) / self.data.iloc[i, 0], 8))
         return sum(self.error) / len(self.error)
@@ -185,7 +185,7 @@ if __name__ == '__main__':
     pre_value = a.predict()
     b = gm11(data, predstep=50)
     valueb = b.fit()
-    print('AdaBoostGM的误差是: ', a.MSE(value))
+    print('AdaBoostGM的误差是: ', a.MAPE(value))
     print('GM(1,1)的误差是： ', b.MSE())
     
     import matplotlib.pyplot as plt
