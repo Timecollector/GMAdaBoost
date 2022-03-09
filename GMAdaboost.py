@@ -186,7 +186,7 @@ if __name__ == '__main__':
     b = gm11(data, predstep=50)
     valueb = b.fit()
     print('AdaBoostGM的误差是: ', a.MAPE(value))
-    print('GM(1,1)的误差是： ', b.MSE())
+    print('GM(1,1)的误差是： ', b.MAPE())
     
     import matplotlib.pyplot as plt
     x = [i for i in range(data.shape[0])]
