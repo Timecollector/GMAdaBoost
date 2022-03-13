@@ -8,7 +8,7 @@
 使用方法：
 1.实例化类     model = gm11(data,predstep=2)
 2.训练模型     model.fit()
-3.查看拟合误差  model.MSE()
+3.查看拟合误差  model.MAPE()
 4.预测        model.predict()
 
 Ps:背景值系数bg_coff接收的是一个列表（主要为了后面新模型的构建），默认值为一个空列表，此时背景值系数默认全部为0.5
@@ -23,7 +23,7 @@ Ps:背景值系数bg_coff接收的是一个列表（主要为了后面新模型�
 1.实例化对象  model = AdaboostGM(data)
 2.进行训练    values = model.fit()
 3.进行预测    pred = model.predict()
-4.查看损失    model.MSE(values)
+4.查看损失    model.MAPE(values)
 
 参数解释：
 data:原始数据
